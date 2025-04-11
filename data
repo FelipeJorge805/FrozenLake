@@ -1,0 +1,88 @@
+Results (parameter, value, total_reward):
+Alpha: 0.1, Total Reward: 8072.0
+Alpha: 0.2, Total Reward: 8172.0
+Alpha: 0.3, Total Reward: 8148.0
+Gamma: 0.9, Total Reward: 8273.0
+Gamma: 0.95, Total Reward: 8232.0
+Gamma: 1.0, Total Reward: 8049.0
+Epsilon: 0.9, Total Reward: 8019.0
+Epsilon: 0.8, Total Reward: 8174.0
+Epsilon: 0.7, Total Reward: 8290.0
+
+C:\Users\Intel\Desktop>python iter.py
+
+Results (parameter, value, average_total_reward):
+Alpha: 0.1, Average Total Reward: 6580.20
+Alpha: 0.15, Average Total Reward: 8209.40
+Alpha: 0.05, Average Total Reward: 6590.60
+Gamma: 0.85, Average Total Reward: 6585.80
+Gamma: 0.9, Average Total Reward: 8250.00
+Gamma: 0.9, Average Total Reward: 8205.20
+Epsilon: 0.9, Average Total Reward: 8240.40
+Epsilon: 0.85, Average Total Reward: 8213.80
+Epsilon: 0.95, Average Total Reward: 8177.60
+
+C:\Users\Intel\Desktop>python iter.py
+
+Results (parameter, value, average_total_reward):
+Alpha: 0.12, Average Total Reward: 8217.40
+Alpha: 0.15, Average Total Reward: 6453.20
+Alpha: 0.17, Average Total Reward: 6551.00
+Gamma: 0.85, Average Total Reward: 8185.80
+Gamma: 0.9, Average Total Reward: 8193.00
+Gamma: 0.95, Average Total Reward: 8139.60
+Epsilon: 0.9, Average Total Reward: 6581.60
+Epsilon: 0.85, Average Total Reward: 8247.80
+Epsilon: 0.95, Average Total Reward: 8134.60
+
+C:\Users\Intel\Desktop>python iter.py
+  File "iter.py", line 57
+    print(f"\rAlpha {alpha} - Repeat {i+1}/{repeats}", end='', flush=True)
+                                                                         ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+C:\Users\Intel\Desktop>python iter.py
+Traceback (most recent call last):
+  File "iter.py", line 57, in <module>
+    print(f"\rAlpha {alpha} - Repeat {i+1}/{repeats}", end='', flush=True)
+NameError: name 'i' is not defined
+
+C:\Users\Intel\Desktop>python iter.py
+Alpha 0.12 - Repeat 5/5
+Alpha 0.15 - Repeat 5/5
+Alpha 0.17 - Repeat 5/5
+Gamma 0.85 - Repeat 5/5
+Gamma 0.9 - Repeat 5/5
+Gamma 0.95 - Repeat 5/5
+Epsilon 0.9 - Repeat 5/5
+Epsilon 0.85 - Repeat 5/5
+Epsilon 0.95 - Repeat 5/5
+
+Results (parameter, value, average_total_reward):
+Alpha: 0.12, Average Total Reward: 8240.60
+Alpha: 0.15, Average Total Reward: 8147.20
+Alpha: 0.17, Average Total Reward: 6414.60
+Gamma: 0.85, Average Total Reward: 8203.00
+Gamma: 0.9, Average Total Reward: 8192.60
+Gamma: 0.95, Average Total Reward: 8162.40
+Epsilon: 0.9, Average Total Reward: 4947.20
+Epsilon: 0.85, Average Total Reward: 8247.20
+Epsilon: 0.95, Average Total Reward: 8113.80
+
+C:\Users\Intel\Desktop>cd desktop
+The system cannot find the path specified.
+
+C:\Users\Intel\Desktop>python iter.py
+Epsilon 0.95 - Repeat 5/5
+Results (parameter, value, average_total_reward):
+Alpha: 0.12, Average Total Reward: 8144.20
+Alpha: 0.15, Average Total Reward: 8163.60
+Alpha: 0.17, Average Total Reward: 8216.40
+Gamma: 0.85, Average Total Reward: 8126.20
+Gamma: 0.9, Average Total Reward: 8241.40
+Gamma: 0.95, Average Total Reward: 8197.20
+Epsilon: 0.9, Average Total Reward: 8042.00
+Epsilon: 0.85, Average Total Reward: 8280.00
+Epsilon: 0.95, Average Total Reward: 8182.80
+
+C:\Users\Intel\Desktop>
