@@ -3,8 +3,14 @@ import gym
 import numpy as np
 
 # Function to run SARSA training for a given set of hyperparameters
-def run_training(alpha, gamma, epsilon, episodes=10000):
-    env = gym.make('FrozenLake-v1', is_slippery=False)
+def run_training(alpha=0.1, gamma=0.9, epsilon=0.9, seed=0, episodes=10000, is_slippery=False):
+    env = gym.make('FrozenLake-v1', is_slippery=is_slippery)
+
+    if seed is not None:
+        np.random.seed(seed)
+        random.seed(seed)
+        env.reset(seed=seed)
+
     state_size = env.observation_space.n
     action_size = env.action_space.n
 
@@ -33,11 +39,6 @@ def run_training(alpha, gamma, epsilon, episodes=10000):
     env.close()
     return total_reward
 
-# Defaults
-default_alpha = 0.1
-default_gamma = 0.9
-default_epsilon = 0.9
-
 # Hyperparameter values to test
 alpha_values = [0.12, 0.15, 0.17]
 gamma_values = [0.85, 0.90, 0.95]
@@ -53,31 +54,28 @@ results = []
 for alpha in alpha_values:
     total = 0
     for i in range(repeats):
-        total += run_training(alpha, default_gamma, default_epsilon)
+        total += run_training(alpha=alpha)
         print(f"\rAlpha {alpha} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('alpha', alpha, avg))
-    print()
 
 # Test gamma values
 for gamma in gamma_values:
     total = 0
     for i in range(repeats):
-        total += run_training(default_alpha, gamma, default_epsilon)
+        total += run_training(gamma=gamma)
         print(f"\rGamma {gamma} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('gamma', gamma, avg))
-    print()
 
 # Test epsilon values
 for epsilon in epsilon_values:
     total = 0
     for i in range(repeats):
-        total += run_training(default_alpha, default_gamma, epsilon)
+        total += run_training(epsilon=epsilon)
         print(f"\rEpsilon {epsilon} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('epsilon', epsilon, avg))
-    print()
 
 # Print final results
 print("\nResults (parameter, value, average_total_reward):")
