@@ -1,3 +1,4 @@
+
 import random
 import gym
 import numpy as np
@@ -33,35 +34,47 @@ def run_training(alpha, gamma, epsilon, episodes=10000):
     env.close()
     return total_reward
 
-# Default values for gamma and epsilon
+# Defaults
 default_alpha = 0.1
 default_gamma = 0.9
 default_epsilon = 0.9
 
-# Hyperparameter grids to test independently
-alpha_values = [0.1, 0.2, 0.3]
-gamma_values = [0.9, 0.95, 1.0]
-epsilon_values = [0.9, 0.8, 0.7]
+# Hyperparameter values to test
+alpha_values = [0.12, 0.15, 0.17]
+gamma_values = [0.85, 0.90, 0.95]
+epsilon_values = [0.9, 0.85, 0.95]
 
-# Table to store results: columns = alpha, gamma, epsilon, and total reward
+# Number of times to repeat each configuration
+repeats = 5
+
+# Table to store results
 results = []
 
-# Test different alpha values while keeping gamma and epsilon fixed at their defaults
+# Test alpha values
 for alpha in alpha_values:
-    total_reward = run_training(alpha, default_gamma, default_epsilon)
-    results.append(('alpha', alpha, total_reward))
+    total = 0
+    for _ in range(repeats):
+        total += run_training(alpha, default_gamma, default_epsilon)
+    avg = total / repeats
+    results.append(('alpha', alpha, avg))
 
-# Test different gamma values while keeping alpha and epsilon fixed at their defaults
+# Test gamma values
 for gamma in gamma_values:
-    total_reward = run_training(default_alpha, gamma, default_epsilon)
-    results.append(('gamma', gamma, total_reward))
+    total = 0
+    for _ in range(repeats):
+        total += run_training(default_alpha, gamma, default_epsilon)
+    avg = total / repeats
+    results.append(('gamma', gamma, avg))
 
-# Test different epsilon values while keeping alpha and gamma fixed at their defaults
+# Test epsilon values
 for epsilon in epsilon_values:
-    total_reward = run_training(default_alpha, default_gamma, epsilon)
-    results.append(('epsilon', epsilon, total_reward))
+    total = 0
+    for _ in range(repeats):
+        total += run_training(default_alpha, default_gamma, epsilon)
+    avg = total / repeats
+    results.append(('epsilon', epsilon, avg))
 
-# Display results in a table-like format
-print("\nResults (parameter, value, total_reward):")
-for result in results:
-    print(f"{result[0].capitalize()}: {result[1]}, Total Reward: {result[2]}")
+# Print final results
+print("\nResults (parameter, value, average_total_reward):")
+for param, value, avg_reward in results:
+    print(f"{param.capitalize()}: {value}, Average Total Reward: {avg_reward:.2f}")
