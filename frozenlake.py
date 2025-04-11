@@ -1,4 +1,3 @@
-
 import random
 import gym
 import numpy as np
@@ -53,26 +52,32 @@ results = []
 # Test alpha values
 for alpha in alpha_values:
     total = 0
-    for _ in range(repeats):
+    for i in range(repeats):
         total += run_training(alpha, default_gamma, default_epsilon)
+        print(f"\rAlpha {alpha} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('alpha', alpha, avg))
+    print()
 
 # Test gamma values
 for gamma in gamma_values:
     total = 0
-    for _ in range(repeats):
+    for i in range(repeats):
         total += run_training(default_alpha, gamma, default_epsilon)
+        print(f"\rGamma {gamma} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('gamma', gamma, avg))
+    print()
 
 # Test epsilon values
 for epsilon in epsilon_values:
     total = 0
-    for _ in range(repeats):
+    for i in range(repeats):
         total += run_training(default_alpha, default_gamma, epsilon)
+        print(f"\rEpsilon {epsilon} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('epsilon', epsilon, avg))
+    print()
 
 # Print final results
 print("\nResults (parameter, value, average_total_reward):")
