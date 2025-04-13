@@ -85,4 +85,30 @@ Epsilon: 0.9, Average Total Reward: 8042.00
 Epsilon: 0.85, Average Total Reward: 8280.00
 Epsilon: 0.95, Average Total Reward: 8182.80
 
-C:\Users\Intel\Desktop>
+Results (parameter, value, average_total_reward):
+Alpha: 0.05, Average Total Reward: 252.40
+Alpha: 0.15, Average Total Reward: 251.80
+Alpha: 0.3, Average Total Reward: 247.40
+Gamma: 0.9, Average Total Reward: 243.80
+Gamma: 0.95, Average Total Reward: 269.20
+Gamma: 0.99, Average Total Reward: 316.20
+Temp_decay: 0.998, Average Total Reward: 271.40
+Temp_decay: 0.997, Average Total Reward: 255.00
+Temp_decay: 0.996, Average Total Reward: 268.40
+Temperature: 0.2, Average Total Reward: 262.20
+Temperature: 0.8, Average Total Reward: 265.60
+Temperature: 3.5, Average Total Reward: 251.60
+
+Results (parameter, value, average_total_reward):Alpha: 0.12, Average Total Reward: 320.20
+Alpha: 0.15, Average Total Reward: 320.40
+Alpha: 0.2, Average Total Reward: 300.40
+Gamma: 1.1, Average Total Reward: 4465.40
+Gamma: 1.05, Average Total Reward: 389.20
+Gamma: 0.99, Average Total Reward: 307.40
+Temp_decay: 0.998, Average Total Reward: 302.40
+Temp_decay: 0.997, Average Total Reward: 318.80
+Temp_decay: 0.996, Average Total Reward: 316.20
+Temperature: 0.3, Average Total Reward: 304.40
+Temperature: 1.0, Average Total Reward: 325.40
+Temperature: 2.0, Average Total Reward: 297.40
+

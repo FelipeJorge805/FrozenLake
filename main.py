@@ -4,18 +4,18 @@ from frozenlake import run_training
 from frozenlake_softmax import run_training_softmax
 
 # Hyperparameter values to test
-alpha_values = [0.12, 0.15, 0.17]
-gamma_values = [0.85, 0.90, 0.95]
-epsilon_values = [0.9, 0.85, 0.95]
+alpha_values = [0.12, 0.15, 0.2]
+gamma_values = [1.0, 1.35, 1.2]
+#epsilon_values = [0.9, 0.85, 0.95]
 temperature_decay_values = [0.998, 0.997, 0.996]
-temperature_values = [0.5, 0.7, 1.5]
+temperature_values = [0.3, 1.0, 2.0]
 
 # Number of times to repeat each configuration
 repeats = 5
 
 # Table to store results
 results = []
-'''
+
 # Test alpha values
 for alpha in alpha_values:
     total = 0
@@ -33,7 +33,7 @@ for gamma in gamma_values:
         print(f"\rGamma {gamma} - Repeat {i+1}/{repeats}", end='', flush=True)
     avg = total / repeats
     results.append(('gamma', gamma, avg))
-
+'''
 # Test epsilon values
 for epsilon in epsilon_values:
     total = 0
@@ -62,6 +62,13 @@ for temperature in temperature_values:
     results.append(('temperature', temperature, avg))
 
 # Print final results
+f = open("data","a")
+f.write("\nResults (parameter, value, average_total_reward):")
 print("\nResults (parameter, value, average_total_reward):")
 for param, value, avg_reward in results:
-    print(f"{param.capitalize()}: {value}, Average Total Reward: {avg_reward:.2f}")
+    s = f"{param.capitalize()}: {value}, Average Total Reward: {avg_reward:.2f}"
+    f.write(s+"\n")
+    print(s)
+
+f.write("\n")
+f.close()
