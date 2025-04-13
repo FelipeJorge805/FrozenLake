@@ -3,7 +3,7 @@ import gym
 import numpy as np
 
 # Function to run SARSA training for a given set of hyperparameters
-def run_training(alpha=0.1, gamma=0.9, epsilon=0.9, seed=0, episodes=10000, is_slippery=False):
+def run_training(alpha=0.1, gamma=0.9, epsilon=0.9, epsilon_decay = 0.999, seed=0, episodes=10000, is_slippery=False):
     env = gym.make('FrozenLake-v1', is_slippery=is_slippery)
 
     if seed is not None:
@@ -34,7 +34,7 @@ def run_training(alpha=0.1, gamma=0.9, epsilon=0.9, seed=0, episodes=10000, is_s
             total_reward += reward
 
         # Decay epsilon
-        epsilon = max(0.1, epsilon * 0.999)
+        epsilon = max(0.1, epsilon * epsilon_decay)
 
     env.close()
     return total_reward
