@@ -112,3 +112,17 @@ Temperature: 0.3, Average Total Reward: 304.40
 Temperature: 1.0, Average Total Reward: 325.40
 Temperature: 2.0, Average Total Reward: 297.40
 
+
+Results (parameter, value, average_total_reward):Alpha: 0.12, Average Total Reward: 254.00
+Alpha: 0.15, Average Total Reward: 261.20
+Alpha: 0.2, Average Total Reward: 249.00
+Gamma: 1.0, Average Total Reward: 315.20
+Gamma: 0.95, Average Total Reward: 277.60
+Gamma: 0.9, Average Total Reward: 268.20
+Temp_decay: 0.998, Average Total Reward: 263.60
+Temp_decay: 0.997, Average Total Reward: 244.20
+Temp_decay: 0.996, Average Total Reward: 259.20
+Temperature: 0.3, Average Total Reward: 278.20
+Temperature: 1.0, Average Total Reward: 243.80
+Temperature: 2.0, Average Total Reward: 249.80
+

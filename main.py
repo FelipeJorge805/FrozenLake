@@ -5,7 +5,7 @@ from frozenlake_softmax import run_training_softmax
 
 # Hyperparameter values to test
 alpha_values = [0.12, 0.15, 0.2]
-gamma_values = [1.0, 1.35, 1.2]
+gamma_values = [1.0, 0.95, 0.9]
 #epsilon_values = [0.9, 0.85, 0.95]
 temperature_decay_values = [0.998, 0.997, 0.996]
 temperature_values = [0.3, 1.0, 2.0]

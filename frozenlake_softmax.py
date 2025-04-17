@@ -7,7 +7,7 @@ def softmax(q_values, temperature=1.0):
     return exp_q / np.sum(exp_q)
 
 # Function to run SARSA training for a given set of hyperparameters
-def run_training_softmax(alpha=0.1, gamma=1.1, temperature=1.5, temperature_decay=0.999, seed=None, episodes=10000, is_slippery=False):
+def run_training_softmax(alpha=0.1, gamma=0.9, temperature=1.5, temperature_decay=0.999, seed=None, episodes=10000, is_slippery=False):
     env = gym.make('FrozenLake-v1', is_slippery=is_slippery)
 
     if seed is not None:
@@ -33,7 +33,7 @@ def run_training_softmax(alpha=0.1, gamma=1.1, temperature=1.5, temperature_deca
             next_action = np.random.choice(action_size, p=next_probs)
 
             # SARSA update
-            q_table[state, action] += alpha * (reward + gamma * q_table[next_state, next_action] - q_table[state, action])
+            q_table[state, action] += alpha * (reward + (gamma * q_table[next_state, next_action]) - q_table[state, action])
 
             state = next_state
             action = next_action
