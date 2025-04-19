@@ -1,4 +1,5 @@
 import gym
+import numpy
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -59,10 +60,10 @@ def train():
     batch = random.sample(memory, BATCH_SIZE)
     states, actions, rewards, next_states, dones = zip(*batch)
 
-    states = torch.FloatTensor(states)
+    states = torch.FloatTensor(numpy.array(states))
     actions = torch.LongTensor(actions).unsqueeze(1)
     rewards = torch.FloatTensor(rewards).unsqueeze(1)
-    next_states = torch.FloatTensor(next_states)
+    next_states = torch.FloatTensor(numpy.array(next_states))
     dones = torch.FloatTensor(dones).unsqueeze(1)
 
     q_values = policy_net(states).gather(1, actions)
