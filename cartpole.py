@@ -31,7 +31,7 @@ LR = 1e-3
 BATCH_SIZE = 64
 MEMORY_SIZE = 10000
 TARGET_UPDATE = 10
-EPISODES = 500
+#EPISODES = 500
 
 # Initialize
 env = gym.make("CartPole-v1", render_mode="human")
@@ -75,6 +75,7 @@ def train():
     loss.backward()
     optimizer.step()
 
+'''
 # Training loop
 for episode in range(EPISODES):
     state, _ = env.reset()
@@ -82,7 +83,7 @@ for episode in range(EPISODES):
     done = False
 
     while not done:
-        env.render()
+        #env.render()
         action = select_action(state, EPSILON)
         next_state, reward, done, _, _ = env.step(action)
         memory.append((state, action, reward, next_state, float(done)))
@@ -99,3 +100,4 @@ for episode in range(EPISODES):
     print(f"Episode {episode}, Total Reward: {total_reward}, Epsilon: {EPSILON:.3f}")
 
 env.close()
+'''
